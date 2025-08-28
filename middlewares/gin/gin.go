@@ -1,8 +1,9 @@
 package gin
 
 import (
-	"github.com/gin-gonic/gin"
 	"io"
+
+	"github.com/gin-gonic/gin"
 )
 
 func NewEngine(opts ...Option) *gin.Engine {

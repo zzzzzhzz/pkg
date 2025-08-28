@@ -2,10 +2,11 @@ package log
 
 import (
 	"context"
+	"time"
+
 	"github.com/go-kratos/kratos/v2/errors"
 	"gorm.io/gorm"
 	log2 "gorm.io/gorm/logger"
-	"time"
 )
 
 type GormLogger struct {

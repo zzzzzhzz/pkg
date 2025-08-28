@@ -2,13 +2,14 @@ package log
 
 import (
 	"context"
+	"os"
+	"path/filepath"
+	"runtime"
+
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"github.com/zzzzzhzz/pkg/constant"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"os"
-	"path/filepath"
-	"runtime"
 )
 
 var (
@@ -25,12 +26,7 @@ type Logger interface {
 	Errorf(format string, v ...interface{})
 	Warnf(format string, v ...interface{})
 	Infof(format string, v ...interface{})
-	// Printf(format string, v ...interface{})
 	Fatalf(format string, v ...interface{})
-	// DebugContextf(ctx context.Context, format string, v ...interface{})
-	// ErrorContextf(ctx context.Context, format string, v ...interface{})
-	// WarnContextf(ctx context.Context, format string, v ...interface{})
-	// InfoContextf(ctx context.Context, format string, v ...interface{})
 }
 
 var (
@@ -59,7 +55,7 @@ type Option func(*Options)
 func newOptions(opts ...Option) Options {
 	// 默认配置
 	options := Options{
-		fileName:   "bitstorm.log",
+		fileName:   "app.log",
 		logLevel:   "info",
 		maxSize:    100,
 		maxBackups: 3,
