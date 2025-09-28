@@ -144,6 +144,8 @@ func (w *zapLoggerWrapper) getEncoder() zapcore.Encoder {
 	encoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
 	// 在日志文件中使用大写字母记录日志级别
 	encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder
+	// 默认不展示全路径
+	//encoderConfig.EncodeCaller = zapcore.FullCallerEncoder
 	// NewConsoleEncoder 打印更符合人们观察的方式
 	return zapcore.NewConsoleEncoder(encoderConfig)
 }
